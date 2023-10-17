@@ -1,30 +1,49 @@
 <?php
-//SET B cha Q1 cha 1 brka 
-     $x=$_POST['x'];
-     $y=$_POST['y'];
-     /*function compare(string $x,string $y)
-     {
-              $c=substr_count($x,$y);
-              echo"$y appears in $x $c times";
-     }
-     compare($x,$y)*/
-     function start(string $x,string $y)
-     {
-              $c=0;
-              $a=strlen($y);
-              while($y[$i]!='')
-              {
-                   if ($y[$i]==$x[$i])
-                      $c++;
-                   $i++;   
-              }
-              if ($a==$c)
-                 echo"$y is appeared in $x at th start";
-              else   
-                 echo"$y is not appeared in $x at th start";
-     }
-     start($x,$y);
+    $x=$_GET['x'];
+    $y=$_GET['y'];
+    $op=$_GET['op'];
 
-//SET B cha Q2 brka     
-     function 
+    
+  
+    function start($x,$y)
+    {
+        $pos=strpos($x,$y);
+        if ($pos!==false)
+           echo"small string appears at $pos of big string<br>";
+        else
+           echo"small string is not appears at start of big string<br>";
+    }
+    function Sml_Pos($x,$y)
+    {
+        $p=strpos($x,$y);
+        if ($p!==false)
+           echo"small string appears at $p of big string<br>";
+        else
+           echo"small string is not appears at start of big string<br>";
+    }
+
+    
+    function Compare($x,$y)
+    {
+        $p=strncasecmp($x,$y,10);
+        if ($p==0)
+           echo"Both string are similar upto 10 char";
+        else
+           echo"Both string are not similar upto 10 char";
+    }
+
+    switch($op)
+    {
+        case 1:
+            start($x,$y);
+            break;
+        case 2:
+            sml_Pos($x,$y);
+            break;
+        case 3:
+            Compare($x,$y);
+            break;
+    }  
+  
+
 ?>
